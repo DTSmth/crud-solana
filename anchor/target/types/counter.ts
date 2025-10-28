@@ -5,7 +5,7 @@
  * IDL can be found at `target/idl/counter.json`.
  */
 export type Counter = {
-  "address": "Count3AcZucFDPSFBAeHkQ6AvttieKUkyJ8HiQGhQwe",
+  "address": "HVR2PEtKYUCaeqfgcTeWCnD7z9REp7KjG3HiCuyvoyP",
   "metadata": {
     "name": "counter",
     "version": "0.1.0",
@@ -59,6 +59,52 @@ export type Counter = {
         },
         {
           "name": "message",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "deleteJournalEntry",
+      "discriminator": [
+        156,
+        50,
+        93,
+        5,
+        157,
+        97,
+        188,
+        114
+      ],
+      "accounts": [
+        {
+          "name": "journalEntry",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "arg",
+                "path": "title"
+              },
+              {
+                "kind": "account",
+                "path": "owner"
+              }
+            ]
+          }
+        },
+        {
+          "name": "owner",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "systemProgram",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "title",
           "type": "string"
         }
       ]
